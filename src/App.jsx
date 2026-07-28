@@ -1,12 +1,15 @@
 import React from 'react';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div>
-      <h1>Mahesh Saran.</h1>
-      <p>Software Engineer & AI/ML Student</p>
+      <Navbar />
+      <main style={{ padding: '0 5%' }}>
+        <h1>Mahesh Saran.</h1>
+        <p>Software Engineer & AI/ML Student</p>
+      </main>
     </div>
   );
 }
-
 export default App;

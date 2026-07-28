@@ -4,7 +4,7 @@
   --bg-color: #F9F9F8;
   --text-primary: #1A1A1A;
   --text-secondary: #666666;
-  --accent-color: #0055FF; /* We might change this later! */
+  --accent-color: #0055FF;
 }
 
 * {
@@ -35,4 +35,41 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5%;
+}
+
+.nav-brand a {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.nav-brand a:hover {
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  text-decoration: none;
 }
