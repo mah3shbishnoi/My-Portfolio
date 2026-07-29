@@ -5,6 +5,8 @@
   --text-primary: #1A1A1A;
   --text-secondary: #666666;
   --accent-color: #0055FF;
+  --glass-bg: rgba(249, 249, 248, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -15,10 +17,19 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-color);
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Vibrant animated background */
+  background: linear-gradient(-45deg, #f9f9f8, #e8f0fe, #fce4ec, #f3e5f5);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,12 +48,19 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Navbar Styles */
+/* Navbar Styles - Glassmorphism */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 1.5rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .nav-brand a {
@@ -128,4 +146,35 @@ a:hover {
   border-bottom: 1px solid var(--text-primary);
   text-decoration: none;
   color: var(--text-primary);
+}
+
+/* Micro-animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.hero-description {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.4s;
+}
+
+.hero-links {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.6s;
 }
