@@ -73,3 +73,54 @@ a:hover {
   color: var(--text-primary);
   text-decoration: none;
 }
+
+/* Hero Section */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  max-width: 600px;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-links a {
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.hero-links a:hover {
+  border-bottom: 1px solid var(--text-primary);
+  text-decoration: none;
+  color: var(--text-primary);
+}
