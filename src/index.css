@@ -46,10 +46,15 @@ a:hover {
 }
 
 .nav-brand a {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
+  /* Optional: A subtle gradient for a more modern premium feel */
+  background: linear-gradient(90deg, #1A1A1A, #4A4A4A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-brand a:hover {
