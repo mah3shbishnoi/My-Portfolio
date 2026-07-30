@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
-  --bg-color: #F9F9F8;
+  --bg-color: #FAFAFA;
   --text-primary: #1A1A1A;
   --text-secondary: #666666;
   --accent-color: #0055FF;
-  --glass-bg: rgba(249, 249, 248, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --grid-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --bg-color: #0A0A0A;
+  --text-primary: #EDEDED;
+  --text-secondary: #A1A1AA;
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --grid-color: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -18,18 +28,15 @@
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text-primary);
+  background-color: var(--bg-color);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* Vibrant animated background */
-  background: linear-gradient(-45deg, #f9f9f8, #e8f0fe, #fce4ec, #f3e5f5);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  /* Engineering Grid Background */
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,19 +55,25 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Navbar Styles - Glassmorphism */
+/* Floating Pill Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
+  padding: 0.75rem 1.5rem;
+  margin: 1.5rem auto 0;
+  width: max-content;
+  max-width: 90vw;
+  gap: 3rem;
   position: sticky;
-  top: 0;
+  top: 1.5rem;
   z-index: 100;
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 9999px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .nav-brand a {
