@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import FooterDock from './components/FooterDock';
 import Hero from './sections/Hero';
+import About from './sections/About';
 import ResumeViewer from './sections/ResumeViewer';
 import './App.css';
 
@@ -23,7 +24,10 @@ function App() {
         {currentHash === '#resume' ? (
           <ResumeViewer />
         ) : (
-          <Hero />
+          <>
+            <Hero />
+            <About />
+          </>
         )}
       </main>
       <FooterDock />

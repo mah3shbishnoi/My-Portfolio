@@ -31,14 +31,66 @@
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
+  transform-origin: bottom;
+  will-change: transform, margin;
+}
+
+/* Custom Instant Tooltip with Arrow */
+.dock-tooltip {
+  position: absolute;
+  top: -45px;
+  background: var(--text-primary);
+  color: var(--glass-bg);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.5) translateY(10px);
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* The tiny down arrow */
+.dock-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; /* Hangs off the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: var(--text-primary) transparent transparent transparent;
+  display: block;
+  width: 0;
 }
 
 .dock-item:hover {
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-8px) scale(1.4);
   border: 1px solid var(--glass-border);
   background: rgba(128, 128, 128, 0.08);
+  margin: 0 0.5rem;
+  z-index: 10;
+}
+
+.dock-item:hover .dock-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(0.714) translateY(0); /* 0.714 counteracts the 1.4 scale of the parent */
+}
+
+.dock-item:has(+ .dock-item:hover) {
+  transform: translateY(-4px) scale(1.15);
+}
+
+.dock-item:hover + .dock-item {
+  transform: translateY(-4px) scale(1.15);
 }
 
 .dock-divider {

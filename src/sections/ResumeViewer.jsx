@@ -12,7 +12,7 @@ const ResumeViewer = () => {
         </a>
         <a href="/resume.pdf" download="Mahesh_Saran_Resume.pdf" className="download-btn">
           <Download size={18} />
-          <span>Download PDF</span>
+          <span>Download</span>
         </a>
       </div>
       
