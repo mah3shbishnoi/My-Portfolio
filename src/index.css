@@ -170,18 +170,75 @@ a:hover {
   min-height: 80vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 5%;
+  gap: 8vw;
 }
 
 .hero-content {
   max-width: 800px;
+  flex: 1;
 }
 
+/* Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 1rem 0.25rem 0.25rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 9999px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.status-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.status-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.status-pill span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Hero Typography */
 .hero-title {
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 1.1;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
+  animation: fadeInUp 0.8s ease forwards 0.1s;
+  opacity: 0;
 }
 
 .hero-subtitle {
@@ -190,6 +247,8 @@ a:hover {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
 }
 
 .hero-description {
@@ -197,11 +256,15 @@ a:hover {
   max-width: 600px;
   color: var(--text-secondary);
   margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.4s;
 }
 
 .hero-links {
   display: flex;
   gap: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.6s;
 }
 
 .hero-links a {
@@ -214,6 +277,112 @@ a:hover {
   border-bottom: 1px solid var(--text-primary);
   text-decoration: none;
   color: var(--text-primary);
+}
+
+/* Glass Terminal Reveal */
+.hero-terminal-container {
+  flex: 0 0 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.8s;
+}
+
+.glass-terminal {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+.glass-terminal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 85, 255, 0.3);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+
+[data-theme="dark"] .terminal-header {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+}
+
+.terminal-body {
+  padding: 1.75rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 220px;
+}
+
+.terminal-body pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 968px) {
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-description {
+    margin: 0 auto 3rem;
+  }
+  
+  .hero-links {
+    justify-content: center;
+  }
+  
+  .glass-terminal {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Micro-animations */

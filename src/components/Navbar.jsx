@@ -5,7 +5,7 @@ const Navbar = () => {
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const navRefs = useRef({});
 
-  const links = ['Home', 'About', 'Projects', 'Skills', 'Certifications', 'Contact'];
+  const links = ['Home', 'About', 'Projects', 'Skills', 'Resume', 'Contact'];
 
   // Move Slider
   useEffect(() => {
@@ -46,5 +46,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
