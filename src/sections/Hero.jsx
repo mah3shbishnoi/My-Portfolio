@@ -65,5 +65,4 @@ Initializing developer profile...
     </section>
   );
 };
-
 export default Hero;
