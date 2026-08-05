@@ -1,5 +1,6 @@
 import React from 'react';
 import './Experience.css';
+import Reveal from '../components/Reveal';
 
 const Experience = () => {
   const experiences = [
@@ -34,14 +35,16 @@ const Experience = () => {
   return (
     <section id="experience" className="experience-section">
       <div className="experience-container">
-        <div className="experience-header">
-          <h2 className="experience-title">Work</h2>
-          <span className="experience-meta">{experiences.length} roles • reverse chronological</span>
-        </div>
+        <Reveal>
+          <div className="experience-header">
+            <h2 className="experience-title">Work</h2>
+            <span className="experience-meta">{experiences.length} roles • reverse chronological</span>
+          </div>
+        </Reveal>
         
         <div className="timeline">
-          {experiences.map((exp) => (
-            <div key={exp.id} className="timeline-item">
+          {experiences.map((exp, index) => (
+            <Reveal key={exp.id} delay={index * 0.2} className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-header">
@@ -60,7 +63,7 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

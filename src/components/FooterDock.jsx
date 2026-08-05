@@ -3,11 +3,14 @@ import { Home, Folder, FileText, Sun, Moon } from 'lucide-react';
 import './FooterDock.css';
 
 const FooterDock = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('portfolio-theme') || 'light';
+  });
 
   // Toggle Theme
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
