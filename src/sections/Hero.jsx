@@ -45,7 +45,7 @@ Initializing developer profile...
         <div className="hero-links">
           <a href="https://github.com/mah3shbishnoi" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/mahesh-saran" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a href="#projects">View Work ↓</a>
+          <a href="#experience">View Work ↓</a>
         </div>
       </div>
       
