@@ -93,8 +93,6 @@
   border: 1px solid rgba(0, 85, 255, 0.3);
 }
 
-.glass-portrait:hover img {
-}
 
 @media (max-width: 968px) {
   .about-grid {

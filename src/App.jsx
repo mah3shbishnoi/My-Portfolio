@@ -4,6 +4,7 @@ import FooterDock from './components/FooterDock';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Experience from './sections/Experience';
+import Projects from './sections/Projects';
 import ResumeViewer from './sections/ResumeViewer';
 import './App.css';
 
@@ -29,6 +30,7 @@ function App() {
             <Hero />
             <About />
             <Experience />
+            <Projects />
           </>
         )}
       </main>
