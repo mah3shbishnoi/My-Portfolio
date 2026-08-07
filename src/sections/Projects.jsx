@@ -43,7 +43,7 @@ const Projects = () => {
       <div className="projects-container">
         <Reveal>
           <div className="projects-header">
-            <h2 className="section-title">Projects.</h2>
+            <h2 className="section-title">Projects</h2>
             <p className="section-subtitle">Selected personal and academic work.</p>
           </div>
         </Reveal>
