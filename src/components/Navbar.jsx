@@ -5,7 +5,15 @@ const Navbar = () => {
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const navRefs = useRef({});
 
-  const links = ['Home', 'About', 'Projects', 'Skills', 'Resume', 'Contact'];
+  const links = [
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Work', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Resume', id: 'resume' },
+    { name: 'Contact', id: 'contact' }
+  ];
 
   // Move Slider
   useEffect(() => {
@@ -29,15 +37,15 @@ const Navbar = () => {
         <ul className="nav-links">
           {links.map((link) => (
             <li 
-              key={link}
-              ref={el => navRefs.current[link] = el}
-              onClick={() => setActive(link)}
+              key={link.name}
+              ref={el => navRefs.current[link.name] = el}
+              onClick={() => setActive(link.name)}
             >
               <a 
-                href={`#${link.toLowerCase()}`}
-                className={active === link ? 'active' : ''}
+                href={`#${link.id}`}
+                className={active === link.name ? 'active' : ''}
               >
-                {link}
+                {link.name}
               </a>
             </li>
           ))}
