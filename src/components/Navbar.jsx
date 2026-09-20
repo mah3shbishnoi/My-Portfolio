@@ -4,6 +4,8 @@ const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const navRefs = useRef({});
+  const isClickScrolling = useRef(false);
+  const clickScrollTimeout = useRef(null);
 
   const links = [
     { name: 'Home', id: 'home' },
@@ -15,10 +17,44 @@ const Navbar = () => {
     { name: 'Contact', id: 'contact' }
   ];
 
+  const handleNavClick = (linkName, linkId) => {
+    setActive(linkName);
+    isClickScrolling.current = true;
+    
+    if (linkId === 'resume') {
+      window.location.hash = 'resume';
+    } else {
+      if (window.location.hash === '#resume') {
+        window.location.hash = '';
+        setTimeout(() => {
+          const section = document.getElementById(linkId);
+          if (section) section.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        const section = document.getElementById(linkId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+    
+    if (clickScrollTimeout.current) {
+      clearTimeout(clickScrollTimeout.current);
+    }
+    const unlockScroll = () => {
+      isClickScrolling.current = false;
+      window.removeEventListener('scrollend', unlockScroll);
+    };
+    
+    window.addEventListener('scrollend', unlockScroll);
+    clickScrollTimeout.current = setTimeout(unlockScroll, 1500);
+  };
+
   // Update active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      if (isClickScrolling.current) return;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
       
       for (const link of links) {
         if (link.id === 'resume') continue;
@@ -36,7 +72,6 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Call once on mount to set initial state based on scroll position
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
@@ -66,7 +101,10 @@ const Navbar = () => {
             <li 
               key={link.name}
               ref={el => navRefs.current[link.name] = el}
-              onClick={() => setActive(link.name)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.name, link.id);
+              }}
             >
               <a 
                 href={`#${link.id}`}
