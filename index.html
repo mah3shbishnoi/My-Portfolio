@@ -5,10 +5,29 @@
     <link rel="icon" type="image/jpeg" href="images/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mahesh Saran</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-B-RiVgbj.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-NOQzXyOr.css">
+    <script type="module" crossorigin src="/portfolio/assets/index-XVhRRB20.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CoYS2uH6.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const img = new Image();
+      img.src = 'images/profile.jpg';
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 64; canvas.height = 64;
+        const ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(32, 32, 32, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, 64, 64);
+        const link = document.querySelector("link[rel*='icon']");
+        if(link) {
+          link.type = 'image/png';
+          link.href = canvas.toDataURL();
+        }
+      };
+    </script>
   </body>
 </html>
