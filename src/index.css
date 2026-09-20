@@ -116,6 +116,14 @@ a:hover {
   position: relative;
   display: flex;
   align-items: center;
+  max-width: 65vw;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-links-container::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-indicator {
