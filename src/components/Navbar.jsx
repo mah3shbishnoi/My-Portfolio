@@ -15,6 +15,33 @@ const Navbar = () => {
     { name: 'Contact', id: 'contact' }
   ];
 
+  // Update active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      
+      for (const link of links) {
+        if (link.id === 'resume') continue;
+        
+        const section = document.getElementById(link.id);
+        if (section) {
+          const offsetTop = section.offsetTop;
+          const offsetHeight = section.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActive(link.name);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Call once on mount to set initial state based on scroll position
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Move Slider
   useEffect(() => {
     const activeElement = navRefs.current[active];
