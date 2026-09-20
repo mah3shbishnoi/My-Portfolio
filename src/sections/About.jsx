@@ -12,7 +12,7 @@ const About = () => {
         
         <div className="about-grid">
           <Reveal delay={0.2} className="about-image-container">
-            <div className="about-image-wrapper">
+            <div className="glass-portrait">
               <img src="images/about-profile.jpg" alt="Mahesh Saran Portrait" />
             </div>
           </Reveal>
