@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
-  --bg-color: #FAFAFA;
+  --bg-color: #FFFFFF;
+  --bg-alt: #F0F2F5;
   --text-primary: #1A1A1A;
-  --text-secondary: #666666;
+  --text-secondary: #4A4A4A;
   --accent-color: #0055FF;
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(0, 0, 0, 0.08);
@@ -12,8 +13,10 @@
 
 [data-theme="dark"] {
   --bg-color: #0A0A0A;
-  --text-primary: #EDEDED;
-  --text-secondary: #A1A1AA;
+  --bg-alt: #000000;
+  --text-primary: #F8F9FA;
+  --text-secondary: #A0A0A0;
+  --accent-color: #3377FF;
   --glass-bg: rgba(10, 10, 10, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
   --grid-color: rgba(255, 255, 255, 0.05);
@@ -27,6 +30,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+.bg-alt {
+  background-color: var(--bg-alt) !important;
+}
+
+.pattern-bg {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+[data-theme="dark"] .pattern-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 body {

@@ -66,7 +66,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="skills-section">
+    <section id="skills" className="skills-section bg-alt pattern-bg">
       <div className="skills-container">
         <Reveal>
           <div className="skills-header">

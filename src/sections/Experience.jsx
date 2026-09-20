@@ -33,7 +33,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="experience-section">
+    <section id="experience" className="experience-section bg-alt pattern-bg">
       <div className="experience-container">
         <Reveal>
           <div className="experience-header">
