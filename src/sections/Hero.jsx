@@ -30,7 +30,7 @@ Initializing developer profile...
       <div className="hero-content">
         <div className="status-pill">
           <div className="status-avatar">
-            <img src="/images/profile.jpg" alt="Mahesh Saran" />
+            <img src="images/profile.jpg" alt="Mahesh Saran" />
           </div>
           <div className="status-indicator"></div>
           <span>Available for opportunities</span>
