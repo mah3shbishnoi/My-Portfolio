@@ -89,6 +89,7 @@ a:hover {
   border: 1px solid var(--glass-border);
   border-radius: 9999px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  isolation: isolate;
 }
 
 .nav-brand a {
@@ -462,10 +463,10 @@ a:hover {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: opacity, transform;
 }
 
 .reveal-wrapper.active {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
