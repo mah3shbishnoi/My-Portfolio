@@ -1,6 +1,6 @@
 .resume-viewer-container {
   min-height: 100vh;
-  padding-top: 60px; /* Increased to clear the floating navbar */
+  padding-top: 100px;
   padding-bottom: 120px; /* Space for the dock */
   display: flex;
   flex-direction: column;
