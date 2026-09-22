@@ -41,8 +41,8 @@ const FooterDock = () => {
           <span className="dock-tooltip">LinkedIn</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="dock-item">
-          <span className="dock-tooltip">X (Twitter)</span>
+        <a href="https://x.com/mah3shbishnoi" target="_blank" rel="noopener noreferrer" className="dock-item">
+          <span className="dock-tooltip">X</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16z"></path><path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772"></path></svg>
         </a>
         <div className="dock-divider"></div>
